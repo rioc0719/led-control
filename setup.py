@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
+import io
 from setuptools import find_packages, setup, Extension
 from setuptools.command.develop import develop
 from setuptools.command.install import install
@@ -38,8 +39,7 @@ requirements = [
     'HAP-python==4.4.0',
     'pyopenssl==22.1.0',
     'numpy>=1.21.0',
-    'pyfastnoisesimd>=0.4.2',
-] + (['bjoern>=3.2.1'] if sys.platform.startswith('linux') else [])
+] + (['pyfastnoisesimd>=0.4.2'] if not is_raspberrypi() else []) + (['bjoern>=3.2.1'] if sys.platform.startswith('linux') else [])
 
 extensions = [
     Extension('_ledcontrol_rpi_ws281x_driver',
