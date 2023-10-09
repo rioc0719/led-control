@@ -34,11 +34,13 @@ def is_raspberrypi():
 
 requirements = [
     'Flask==2.2.2',
+    'Werkzeug==2.2.2',
     'RestrictedPython>=5.2',
     'sacn>=1.8.1',
     'HAP-python==4.4.0',
     'pyopenssl==22.1.0',
     'numpy>=1.21.0',
+    'serial>=0.0.97'
 ] + (['pyfastnoisesimd>=0.4.2'] if not is_raspberrypi() else []) + (['bjoern>=3.2.1'] if sys.platform.startswith('linux') else [])
 
 extensions = [
