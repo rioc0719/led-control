@@ -3,7 +3,6 @@
 
 import argparse
 from ledcontrol.app import create_app
-import pdb
 
 def main(**kwargs):
     parser = argparse.ArgumentParser()
