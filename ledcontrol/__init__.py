@@ -4,7 +4,7 @@
 import argparse
 from ledcontrol.app import create_app
 
-def main(**kwargs):
+def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--port', type=int, default=80,
                         help='Port to use for web interface. Default: 80')
@@ -38,9 +38,7 @@ def main(**kwargs):
                         help='Do not reset the animation timer when patterns are changed. Default: False')
     parser.add_argument('--dev', action='store_true',
                         help='Development flag. Default: False')
-    args_dict = vars(parser.parse_args())
-    args_dict.update(kwargs)
-    args = argparse.Namespace(**args_dict)
+    args = parser.parse_args()
 
     app = create_app(args.led_count,
                      args.config_file,
